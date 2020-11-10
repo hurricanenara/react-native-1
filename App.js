@@ -577,7 +577,7 @@ export default function App() {
             style={styles.image}
           />
         </View>
-        <ScrollView contentContainerStyle={styles.categoryContainer} horizontal indicatorStyle={"white"}>
+        <ScrollView contentContainerStyle={styles.categoryContainer} horizontal>
           <TouchableOpacity style={styles.categoryButtons1}><Text style={styles.categoryText}>Life</Text></TouchableOpacity>
           <TouchableOpacity style={styles.categoryButtons2}><Text style={styles.categoryText}>Finance</Text></TouchableOpacity>
           <TouchableOpacity style={styles.categoryButtons3}><Text style={styles.categoryText}>Pets</Text></TouchableOpacity>
