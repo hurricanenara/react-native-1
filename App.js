@@ -517,7 +517,7 @@
 //   },
 //   containerTwo:{
 //     flex:2,
-//     flexDirection:"row",
+//     // flexDirection:"row",
 //     backgroundColor:"yellow"
 //   },
 //   innerOne: {
@@ -530,50 +530,203 @@
 //   }
 // });
 
+// import React from 'react';
+// import { StyleSheet, Text, View } from 'react-native';
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <View style={styles.containerOne}>
+
+//       </View>
+//       <View style={styles.containerTwo}>
+//         <View style={styles.innerOne}>
+         
+//         </View>
+//         <View style={styles.innerTwo}>
+//           <Text>!!컨텐츠!!</Text>
+//         </View>
+
+//       </View>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex:1,
+//     backgroundColor:"#d9818f",
+//   },
+// });
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import mainPhoto from "./assets/main.png"
+import pizzaPhoto from "./assets/pizza.png"
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.containerOne}>
-
-      </View>
-      <View style={styles.containerTwo}>
-        <View style={styles.innerOne}>
-         
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.textContainer}><Text style={styles.textHeader}>&#9816;&#10084;</Text></View>
+      <View style={styles.contentContainer}>
+        <View style={styles.imageContainer}>
+          <Image 
+            source={mainPhoto}
+            // resizeMode="contain"
+            style={styles.image}
+          />
         </View>
-        <View style={styles.innerTwo}>
-          <Text>!!컨텐츠!!</Text>
-        </View>
+        <ScrollView contentContainerStyle={styles.categoryContainer} horizontal indicatorStyle={"white"}>
+          <TouchableOpacity style={styles.categoryButtons1}><Text style={styles.categoryText}>Life</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.categoryButtons2}><Text style={styles.categoryText}>Finance</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.categoryButtons3}><Text style={styles.categoryText}>Pets</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.categoryButtons4}><Text style={styles.categoryText}>Saved</Text></TouchableOpacity>
+        </ScrollView>
+        <View style={styles.noteContainer}>
+          <View style={styles.singleNoteContainer}>
+            <View style={styles.pizzaContainer}>
+              <Image
+                source={pizzaPhoto}
+                resizeMode="cover"
+                style={styles.pizzaImage}
+              />
+            </View>
+            <View style={styles.pizzaTextContainer}>
+              <Text h3 style={styles.pizzaTitle}>먹다 남은 피자를 촉촉하게!</Text>
+              <Text numberOfLines={3} style={styles.pizzaDescription}>
+                먹다 남은 피자는 수분이 날라가기 때문에 처음처럼 맛있게 먹을 수 없는데요. 이럴 경우 그릇에 물을 받아 전자레인지 안에서 1분 30초에서 2분 정도 함께 돌려주면 촉촉하게 먹을 수 있습니다. 물이 전자레인지 안에서 수증기를 일으키고, 피자에 촉촉함을 더해줍니다.
+              </Text>
+              <Text style={styles.noteDate}>09-09-2020</Text>
+            </View>
 
+          </View>
+          <View style={styles.singleNoteContainer}><Text></Text></View>
+          <View style={styles.singleNoteContainer}><Text></Text></View>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
+}
+
+function pickColor() {
+  const arr = ["#a5b6ee", "#d2a5ee", "#eea7a5", "#baeea5", "#ffedb3", "#adffcb", "#ffadbf", "#cbffad","#ffadad", "#a6a9fc", "#5abfb5"];
+  // let randIdx = Math.floor(Math.random() * arr.length);
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex:1
-  },
-  containerOne: {
     flex:1,
-    backgroundColor:"red"
+    // backgroundColor:"#d9818f",
+    paddingLeft: 15,
+    paddingRight: 15,
   },
-  containerTwo:{
+  textContainer: {
+    flex: 1,
+    // backgroundColor: "gray",
+    justifyContent: "flex-end",
+  },
+  textHeader: {
+    fontSize: 50,
+    paddingBottom: 5,
+    // paddingLeft: 8,
+  },
+  contentContainer: {
+    flex: 10,
+    // backgroundColor: "#adbae6"
+  },
+  imageContainer: {
+    marginTop:2,
+    marginBottom:2,
+    flex: 4,
+  },
+  image: {
+    width:"100%",
+    height:"100%",
+    borderRadius:20,
+  },
+  categoryContainer: {
+    width:"100%",
+    backgroundColor: "white",
+    flex:1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+  categoryButtons1: {
+    borderRadius: 15,
+    height: 50,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 50,
+    backgroundColor: pickColor(),
+  },
+  categoryButtons2: {
+    borderRadius: 15,
+    height: 50,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 50,
+    backgroundColor: pickColor(),
+  },
+  categoryButtons3: {
+    borderRadius: 15,
+    height: 50,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 50,
+    backgroundColor: pickColor(),
+  },
+  categoryButtons4: {
+    borderRadius: 15,
+    height: 50,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 50,
+    backgroundColor: pickColor(),
+  },
+  categoryText: {
+    color: "white",
+    fontWeight: "700"
+  },
+  noteContainer: {
+    flex: 6,
+    // backgroundColor: "purple",
+    // flexDirection: "row",
+  },
+  singleNoteContainer: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  pizzaContainer: {
+    flex: 1,
+    paddingBottom: 10,
+  }, 
+  pizzaImage: {
+    height:"100%",
+    width:"100%",
+    borderRadius: 10,
+  },
+  pizzaTextContainer: {
+    flex: 2,
+    padding: 10,
+    justifyContent: "flex-start"
+  },
+  pizzaText: {
     flex:2,
-    flexDirection:"row",
-    backgroundColor:"yellow"
   },
-  innerOne: {
-    flex:1,
-    backgroundColor:"blue"
+  pizzaTitle: {
+    fontWeight: "800",
+    paddingBottom: 5,
   },
-  innerTwo: {
-    flex:4,
-    justifyContent:"center",
-    flexDirection:'row',
-    // alignItems:"center",
-    backgroundColor:"orange"
-  }
+  noteDate: {
+    color: "#d9d9d9",
+    fontSize: 13,
+    paddingTop: 5,
+  },
 });
