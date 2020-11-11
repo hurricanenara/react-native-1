@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import mainPhoto from "./assets/main.png"
-import pizzaPhoto from "./assets/pizza.png"
-import data from './data.json';
+import mainPhoto from "../assets/main.png"
+import pizzaPhoto from "../assets/pizza.png"
+import data from '../data.json';
 
 
-export default function App() {
+export default function Main() {
 
   const tips = data.tips;
 
@@ -35,7 +35,7 @@ export default function App() {
             {
               tips.map((content, i) => {
                 return (
-                  <View style={Object.assign({}, styles.singleNoteContainer, oddEven(i))} key={i}>
+                  <View style={styles.singleNoteContainer} key={i}>
                     <View style={styles.pizzaContainer}>
                       <Image
                         // source={pizzaPhoto}
@@ -158,13 +158,10 @@ const styles = StyleSheet.create({
     height:"100%",
     width:"100%",
     borderRadius: 10,
-    marginTop: 5,
-    marginLeft: 5,
   },
   pizzaTextContainer: {
     flex: 2,
-    paddingTop: 5,
-    paddingLeft: 15,
+    paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 10,
     // paddingTop: 10,
