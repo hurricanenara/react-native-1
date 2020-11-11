@@ -5,12 +5,12 @@ import pizzaPhoto from "../assets/pizza.png"
 import data from '../data.json';
 
 
-export default function Main() {
+export default function App() {
 
   const tips = data.tips;
 
   function oddEven(idx) {
-    const odd = "#f0f0f0";
+    const odd = "#f7f7f7";
     if (!(idx % 2)) return { backgroundColor: odd, borderRadius: 5 }
   }
 
@@ -35,7 +35,7 @@ export default function Main() {
             {
               tips.map((content, i) => {
                 return (
-                  <View style={styles.singleNoteContainer} key={i}>
+                  <View style={Object.assign({}, styles.singleNoteContainer, oddEven(i))} key={i}>
                     <View style={styles.pizzaContainer}>
                       <Image
                         // source={pizzaPhoto}
@@ -158,10 +158,13 @@ const styles = StyleSheet.create({
     height:"100%",
     width:"100%",
     borderRadius: 10,
+    marginTop: 5,
+    marginLeft: 5,
   },
   pizzaTextContainer: {
     flex: 2,
-    paddingLeft: 10,
+    paddingTop: 5,
+    paddingLeft: 15,
     paddingRight: 10,
     paddingBottom: 10,
     // paddingTop: 10,
