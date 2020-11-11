@@ -731,6 +731,11 @@ export default function App() {
 
   const tips = data.tips;
 
+  function oddEven(idx) {
+    const odd = "#f0f0f0";
+    if (!(idx % 2)) return { backgroundColor: odd, borderRadius: 5 }
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.textContainer}><Text style={styles.textHeader}>&#9816;&#10084;</Text></View>
@@ -752,7 +757,7 @@ export default function App() {
             {
               tips.map((content, i) => {
                 return (
-                  <View style={styles.singleNoteContainer} key={i}>
+                  <View style={styles.singleNoteContainer, oddEven(i)} key={i}>
                     <View style={styles.pizzaContainer}>
                       <Image
                         // source={pizzaPhoto}
