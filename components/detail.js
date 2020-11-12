@@ -15,15 +15,62 @@ export default function Detail() {
         "date":"2020.09.09"
     };
 
+    function toggleColor() {
+        // styles.container.backgroundColor === { color: "white" } ? { color: "black" } : { color: "white" };
+        return null;
+    }
+
     return (
-        <View style={styles.container}>
-            <Text>Detail</Text>
-        </View>
+        <ScrollView contentContainerStyle={styles.container}>
+            <Image 
+                source={{uri: tip.image}}
+                style={styles.mainImage}
+            />
+            <Text style={Object.assign({}, styles.detailTitle, toggleColor())}>{tip.title}</Text>
+            {/* <Text style={styles.detailTitle}>{styles.container.backgroundColor}</Text> */}
+            <Text style={styles.detailDescription}>{tip.desc}</Text>
+            <TouchableOpacity style={styles.tipButton}><Text style={styles.tipButtonText}>팁 찜하기</Text></TouchableOpacity>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        
-    }
+        backgroundColor: "white",
+        flex: 1,
+    },
+    mainImage: {
+        width: "100%",
+        height: "50%",
+        marginTop: 22,
+    },
+    detailTitle: {
+        // color: "black",
+        alignSelf: "center",
+        fontSize: 22,
+        fontWeight: "700",
+        margin: 22,
+    },
+    detailDescription: {
+        // color: "black",
+        width: "90%",
+        alignSelf: "center",
+        lineHeight: 20,
+    },
+    tipButton: {
+        borderColor: "pink",
+        borderWidth: 1,
+        borderStyle: "solid",
+        width: "28%",
+        alignSelf: "center",
+        margin: 28,
+        borderRadius: 5
+    },
+    tipButtonText: {
+        // color: "black",
+        textAlign: "center",
+        padding: 10
+    },
+
 });
+

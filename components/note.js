@@ -1,50 +1,36 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import mainPhoto from "../assets/main.png"
-import pizzaPhoto from "../assets/pizza.png"
-import data from '../data.json';
-import Note from '../components/note';
+import React from "react"
+import {View,Text,Image,StyleSheet} from "react-native";
 
-
-export default function App() {
-
-  const tips = data.tips;
+//비구조 할당 방식으로 넘긴 속성 데이터를 꺼내 사용함
+export default function Note({content}) {
 
   function oddEven(idx) {
     const odd = "#f7f7f7";
     if (!(idx % 2)) return { backgroundColor: odd, borderRadius: 5 }
   }
 
-  return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.textContainer}><Text style={styles.textHeader}>&#9816;&#10084;</Text></View>
-      <View style={styles.contentContainer}>
-        <View style={styles.imageContainer}>
-          <Image 
-            source={mainPhoto}
-            // resizeMode="contain"
-            style={styles.image}
-          />
+    return (
+        <View style={Object.assign({}, styles.singleNoteContainer)}>
+            <View style={styles.pizzaContainer}>
+                <Image
+                // source={pizzaPhoto}
+                source={{uri: content.image}}
+                resizeMode="cover"
+                style={styles.pizzaImage}
+                />
+            </View>
+            <View style={styles.pizzaTextContainer}>
+                <Text h3 style={styles.pizzaTitle}>{content.title}</Text>
+                <Text numberOfLines={3} style={styles.pizzaDescription}>
+                {content.desc}
+                </Text>
+                <Text style={styles.noteDate}>{content.date}</Text>
+            </View>
         </View>
-        <ScrollView contentContainerStyle={styles.categoryContainer} horizontal>
-          <TouchableOpacity style={styles.categoryButtons1}><Text style={styles.categoryText}>Life</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButtons2}><Text style={styles.categoryText}>Finance</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButtons3}><Text style={styles.categoryText}>Pets</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButtons4}><Text style={styles.categoryText}>Saved</Text></TouchableOpacity>
-        </ScrollView>
-        <View style={styles.noteContainer}>
-            {
-              tips.map((content, i) => {
-                return (
-                  <Note content={content} key={i} />
-                );
-              })
-            }
-        </View>
-      </View>
-    </ScrollView>
-  );
+    );
 }
+
+
 
 function pickColor() {
   const arr = ["#a5b6ee", "#d2a5ee", "#eea7a5", "#baeea5", "#ffedb3", "#adffcb", "#ffadbf", "#cbffad","#ffadad", "#a6a9fc", "#5abfb5"];
@@ -151,8 +137,6 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 10,
     paddingBottom: 10,
-    // paddingTop: 10,
-    // marginLeft: 10,
   },
   pizzaText: {
     flex:2,
