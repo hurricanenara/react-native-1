@@ -48,6 +48,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Detail from '../components/detail';
 import Main from '../components/main';
 import About from '../components/about';
+import Liked from '../components/liked';
 
 //스택 네비게이션 라이브러리가 제공해주는 여러 기능이 담겨있는 객체를 사용합니다
 //그래서 이렇게 항상 상단에 선언하고 시작하는게 규칙입니다!
@@ -64,7 +65,7 @@ const StackNavigator = () =>{
             screenOptions={{
                 headerStyle: {
                     backgroundColor: "white",
-                    borderBottomColor: "white",
+                    // borderBottomColor: "white",
                     shadowColor: "white",
                     height:70
                 },
@@ -80,6 +81,7 @@ const StackNavigator = () =>{
             <Stack.Screen name="Main" component={Main}/>
             <Stack.Screen name="Detail" component={Detail}/>
             <Stack.Screen name="About" component={About}/>
+            <Stack.Screen name="Liked" component={Liked}/>
         </Stack.Navigator>
     )
 }

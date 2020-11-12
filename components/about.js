@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient'
 import { LinearGradient } from "expo-linear-gradient";
 import { Animated } from "react-native";
 
-export default function About() {
+export default function About( { navigation, route } ) {
+
+    useEffect(() => {
+        console.log(route)
+        navigation.setOptions({
+            title: route.name,
+            headerTransparent: true,
+            headerStyle: {
+            }
+        })
+    })
 
     return (
         <View style={styles.container}>
@@ -38,6 +48,7 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         margin: 30,
+        marginTop: 70,
         alignSelf: "center",
         width: "85%"
     },
@@ -48,7 +59,7 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         backgroundColor: "rgba(232, 238, 253, 0.5)",
-        height: "68%",
+        height: "60%",
         width: "85%",
         alignSelf: "center",
         borderRadius: 30,
@@ -67,6 +78,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         textAlign: "center",
         marginTop: 20,
+        width: "90%"
     },
     cardContent: {
         fontSize: 20,

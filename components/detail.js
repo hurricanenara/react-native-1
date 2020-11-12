@@ -273,7 +273,7 @@ import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity,Alert,Share } from 'react-native';
 import * as Linking from 'expo-linking';
 
-export default function Detail({navigation,route}) {
+export default function Detail( { navigation,route } ) {
 
     const [tip, setTip] = useState({
         "idx":9,
