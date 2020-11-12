@@ -745,6 +745,7 @@ export default function MainPage({navigation,route}) {
         <StatusBar style="black" />
         {/* <Text style={styles.title}>나만의 꿀팁</Text> */}
         <Text style={styles.weather}>오늘의 날씨: {todayWeather + '°C ' + todayCondition} </Text>
+        <TouchableOpacity style={Object.assign(styles.aboutButton)} onPress={() => navigation.navigate("About")}><Text style={styles.middleButtonTextAll}>소개</Text></TouchableOpacity>
         <Image style={styles.mainImage} source={main}/>
         <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
             <TouchableOpacity style={styles.middleButtonAll} onPress={()=>{category('전체보기')}}><Text style={styles.middleButtonTextAll}>전체보기</Text></TouchableOpacity>
@@ -792,7 +793,7 @@ weather:{
     height:200,
     //컨텐츠의 모서리 구부리기
     borderRadius:10,
-    marginTop:20,
+    marginTop:15,
     //컨텐츠 자체가 앱에서 어떤 곳에 위치시킬지 결정(정렬기능)
     //각 속성의 값들은 공식문서에 고대로~ 나와 있음
     alignSelf:"center"
@@ -802,9 +803,20 @@ weather:{
     marginLeft:10,
     height:60
   },
+  aboutButton: {
+    width:95,
+    height:42,
+    padding:15,
+    backgroundColor:"pink",
+    borderColor:"deeppink",
+    borderRadius:15,
+    marginRight: 20,
+    marginTop: 12,
+    alignSelf: "flex-end"
+  },
   middleButtonAll: {
-    width:100,
-    height:50,
+    width:95,
+    height:42,
     padding:15,
     backgroundColor:"#20b2aa",
     borderColor:"deeppink",
@@ -812,33 +824,33 @@ weather:{
     margin:7
   },
   middleButton01: {
-    width:100,
-    height:50,
+    width:95,
+    height:42,
     padding:15,
-    backgroundColor:"#fdc453",
+    backgroundColor:"#fdc423",
     borderColor:"deeppink",
     borderRadius:15,
     margin:7
   },
   middleButton02: {
-    width:100,
-    height:50,
+    width:95,
+    height:42,
     padding:15,
     backgroundColor:"#fe8d6f",
     borderRadius:15,
     margin:7
   },
   middleButton03: {
-    width:100,
-    height:50,
+    width:95,
+    height:42,
     padding:15,
     backgroundColor:"#9adbc5",
     borderRadius:15,
     margin:7
   },
   middleButton04: {
-    width:100,
-    height:50,
+    width:95,
+    height:42,
     padding:15,
     backgroundColor:"#f886a8",
     borderRadius:15,
