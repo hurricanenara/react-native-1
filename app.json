@@ -16,23 +16,23 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "ios": {
+      "supportsTablet": true,
+      "buildNumber": "1.0.0",
+      "bundleIdentifier": "com.cooltip.nara",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1953688394698501~6570763735"
+      }
+    },
+    "android": {
+          "package": "com.cooltip.nara",
+          "versionCode": 1,
+          "config": {
+            "googleMobileAdsAppId": "ca-app-pub-1953688394698501~5971997930"
+          }
+  },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "ios": {
-          "supportsTablet": true,
-          "buildNumber": "1.0.0",
-          "bundleIdentifier": "com.nara.cooltip-nara",
-          "config": {
-            "googleMobileAdsAppId": "ca-app-pub-1953688394698501~6570763735"
-          }
-        },
-    "android": {
-            "package": "com.nara.cooltip-nara",
-            "versionCode": 1,
-            "config": {
-              "googleMobileAdsAppId": "ca-app-pub-1953688394698501~5971997930"
-            }
     }
   }
 }
