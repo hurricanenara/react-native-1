@@ -1610,6 +1610,7 @@ export default function MainPage({navigation,route}) {
         firebase_db.ref('/tips').once('value').then((snapshot) => {
           console.log("파이어베이스에서 데이터 가져왔습니다!!")
           let tips = snapshot.val();
+          console.log(tips, "fecthed tips");
           setState(tips)
           setCateState(tips)
           getLocation()
@@ -1686,7 +1687,7 @@ export default function MainPage({navigation,route}) {
         <StatusBar style="black" />
         {/* <Text style={styles.title}>나만의 꿀팁</Text> */}
         <Text style={styles.weather}>오늘의 날씨: {weather.temp + '°C   ' + weather.condition} </Text>
-        <TouchableOpacity style={styles.aboutButton} onPress={()=>{navigation.navigate('AboutPage')}}>
+        <TouchableOpacity style={styles.aboutButton} onPress={()=>{navigation.navigate('About')}}>
           <Text style={styles.aboutButtonText}>소개 페이지</Text>
         </TouchableOpacity>
         <Image style={styles.mainImage} source={main}/>

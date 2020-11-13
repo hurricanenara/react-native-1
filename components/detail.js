@@ -490,6 +490,7 @@
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity,Alert,Share } from 'react-native';
 import * as Linking from 'expo-linking';
+import { StatusBar } from 'expo-status-bar';
 import {firebase_db} from "../firebaseConfig"
 import Constants from 'expo-constants';
 
@@ -552,6 +553,7 @@ export default function DetailPage({navigation,route}) {
         // 화면에 넣은 컨텐츠를 모두 보여주려 스크롤 기능이 존재하기 때문입니다. 
         // 여기선 내부의 컨텐츠들 영역을 결정짓기 위해서 height 값과 margin,padding 값을 적절히 잘 이용해야 합니다. 
         <ScrollView style={styles.container}>
+            <StatusBar style="light" />
             <Image style={styles.image} source={{uri:tip.image}}/>
             <View style={styles.textContainer}>
                 <Text style={styles.title}>{tip.title}</Text>
