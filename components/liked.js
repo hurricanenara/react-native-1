@@ -10,14 +10,14 @@ export default function Liked( { navigation,route } ) {
     const userId = Constants.installationId;
 
     const [tip, setTip] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         firebase_db.ref('/like/' + userId).once('value').then((snapshot) => {
             let tips = snapshot.val();
-            // console.log(tips, `fecthed ${tips.length} tips`);
-            setTip(tips);
-            setIsLoading(false);
+            console.log(tips, `fecthed ${Object.keys(tips).length} tips`);
+            setTip(Object.values(tips));
+            // setIsLoading(false);
         });
     });
     
@@ -26,18 +26,14 @@ export default function Liked( { navigation,route } ) {
         return <Text style={styles.addTipsMessage}>No liked tips yet! Like your favorite tips for quicker access here!</Text>
     } else {
         return (
-            isLoading ? (
-                <Loading />
-            ) : (
             <ScrollView contentContainerStyle={styles.container}>
                 {
                     tip.map((content, i) => {
                         // console.log(content)
-                        return (<Note content={content} key={i} navigation={navigation} />)
+                        return (<Note content={content} contentIdx={content.idx} key={i} navigation={navigation} route={route}/>)
                     })
                 }
             </ScrollView>
-            )
         );
     }
 }

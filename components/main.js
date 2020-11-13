@@ -1603,6 +1603,7 @@ export default function MainPage({navigation,route}) {
     //뒤의 1000 숫자는 1초를 뜻함
     //1초 뒤에 실행되는 코드들이 담겨 있는 함수
     setTimeout(()=>{
+      console.log(route, "main route")
         //헤더의 타이틀 변경
         navigation.setOptions({
             title:'나만의 꿀팁'
@@ -1702,7 +1703,7 @@ export default function MainPage({navigation,route}) {
             {/* 하나의 카드 영역을 나타내는 View */}
             {
             cateState.map((content,i)=>{
-                return (<Note content={content} key={i} navigation={navigation}/>)
+                return (<Note content={content} key={i} navigation={navigation} route={route}/>)
             })
             }
             
@@ -1749,7 +1750,7 @@ weather:{
   },
   middleButtonAll: {
     width:100,
-    height:50,
+    height:45,
     padding:15,
     backgroundColor:"#20b2aa",
     borderColor:"deeppink",
@@ -1758,7 +1759,7 @@ weather:{
   },
   middleButton01: {
     width:100,
-    height:50,
+    height:45,
     padding:15,
     backgroundColor:"#fdc453",
     borderColor:"deeppink",
@@ -1767,7 +1768,7 @@ weather:{
   },
   middleButton02: {
     width:100,
-    height:50,
+    height:45,
     padding:15,
     backgroundColor:"#fe8d6f",
     borderRadius:15,
@@ -1775,7 +1776,7 @@ weather:{
   },
   middleButton03: {
     width:100,
-    height:50,
+    height:45,
     padding:15,
     backgroundColor:"#9adbc5",
     borderRadius:15,
@@ -1783,7 +1784,7 @@ weather:{
   },
   middleButton04: {
     width:100,
-    height:50,
+    height:45,
     padding:15,
     backgroundColor:"#f886a8",
     borderRadius:15,
@@ -1792,8 +1793,8 @@ weather:{
   middleButtonText: {
     color:"#fff",
     fontWeight:"700",
-    //텍스트의 현재 위치에서의 정렬 
-    textAlign:"center"
+    alignSelf: "center",
+    textAlignVertical: "center"
   },
   middleButtonTextAll: {
     color:"#fff",
@@ -1806,18 +1807,20 @@ weather:{
     marginLeft:10
   },
   aboutButton: {
+    flex: 1,
     backgroundColor:"pink",
-    width:100,
+    width:90,
     height:40,
     borderRadius:10,
     alignSelf:"flex-end",
     marginRight:20,
-    marginTop:10
+    marginTop:10,
   },
   aboutButtonText: {
     color:"#fff",
-    textAlign:"center",
-    marginTop:10
+    alignSelf: "center",
+    marginTop:12,
+    fontWeight: "700",
   }
 
 
