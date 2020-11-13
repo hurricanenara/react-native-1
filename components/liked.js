@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import main from '../assets/main.png';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
-import data from '../data.json';
 import Note from './note';
 import Loading from '../components/loading';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar';import {firebase_db} from "../firebaseConfig"
+import Constants from 'expo-constants';
 
 export default function Liked( { navigation,route } ) {
+    const user_idx = Constants.installationId;
 
     const [tip, setTip] = useState([
         {
@@ -29,6 +29,11 @@ export default function Liked( { navigation,route } ) {
 
 useEffect(() => {
     console.log(route)
+    // firebase_db.ref(`/like/${user_idx}`).once('value').then(snapshot => {
+    //     let tips = snapshot.val();
+    //     setTip(tips);
+    //     console.log('fetched liked tips', tips)
+    // })
 })
 
     return (

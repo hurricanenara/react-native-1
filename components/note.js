@@ -299,13 +299,16 @@ const styles = StyleSheet.create({
     },
     cardTitle: {
       fontSize:20,
-      fontWeight:"700"
+      fontWeight:"700",
+      marginBottom: 6,
+      marginTop: 5,
     },
     cardDesc: {
-      fontSize:15
+      fontSize:15,
+      marginBottom: 6,
     },
     cardDate: {
-      fontSize:10,
+      fontSize:13,
       color:"#A6A6A6",
     }
 });
