@@ -19,7 +19,7 @@ export default function Liked( { navigation,route } ) {
             setTip(Object.values(tips));
             // setIsLoading(false);
         });
-    });
+    }, []);
     
     if (tip === null) {
         console.log(tip)

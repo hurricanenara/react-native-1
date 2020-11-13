@@ -14,7 +14,7 @@ export default function About( { navigation, route } ) {
             headerStyle: {
             }
         })
-    })
+    }, []);
 
     return (
         <View style={styles.container}>
